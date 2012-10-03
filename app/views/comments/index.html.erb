@@ -1,0 +1,7 @@
+
+<h1>Comment Details...</h1>
+<% @comment.each do |c|  %>
+  commenter:<%= c.commenter %></br>
+  comment:<%= c.comment %> </br>
+<% end %>
+<%= link_to 'Back', posts_path %>

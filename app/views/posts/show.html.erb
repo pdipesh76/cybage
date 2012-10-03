@@ -1,0 +1,29 @@
+<h1> Post detail </h1>
+<% flash[:notice] %>
+<b><%= flash[:notice] %></b></br>
+Title: <%= @post.title %> </br>
+Author: <%= @post.author %> </br>
+Description: <%= @post.description %> </br>
+<h2> Add Comment </h1>
+<%=  form_for([@post , @post.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :commenter %>
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+    
+<% end %>
+<h2>All comments </h2>
+<% @post.comments.each do |c| %>
+  commenter:<%= c.commenter %></br>
+  comment:<%= c.comment %> </br>
+<% end %>
+
+<%= link_to 'Edit' , edit_post_path %>
+<%= link_to 'Back' , posts_path %>
